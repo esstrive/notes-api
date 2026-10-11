@@ -1,12 +1,11 @@
-const express = require ("express")
+const express = require("express")
+
+const noteRoutes = require("./routes/note.route")
 
 const app = express()
-app.use(express.json());
 
+app.use(express.json())
 
-app .get("/", (req, res)=>{
-    res.json({
-        message: "Notes API is running "
-    })
-})
-module.exports = app()
+app.use("/api", noteRoutes)
+
+module.exports = app
